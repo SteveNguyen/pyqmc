@@ -6,12 +6,17 @@ import sys
 from setuptools import setup, find_packages
 
 
+def version():
+    with open('pyqmc/_version.py') as f:
+        return f.read()
+
+
 extra = {}
 if sys.version_info >= (3,):
     extra['use_2to3'] = True
 
 setup(name='pyqmc',
-      version='0.0.1',
+      version=version(),
       packages=find_packages(),
 
       install_requires=['numpy'], #graph_tool
